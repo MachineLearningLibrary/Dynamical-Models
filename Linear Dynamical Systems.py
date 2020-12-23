@@ -181,7 +181,7 @@ while i < n:
 
     T = 4
     
-    last_value = numpy.random.normal(h_bias_series[w1], sigma_h_series[w1], 1)[0] 
+    last_value = numpy.random.normal(h_bias_series[4], sigma_h_series[4], 1)[0] 
     
     
     
