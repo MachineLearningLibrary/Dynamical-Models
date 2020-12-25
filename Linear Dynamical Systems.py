@@ -78,6 +78,17 @@ matrix_sigma_v = numpy.array([[0.05, 0.05, 0.05, 0.05], [0.05, 0.05, 0.05, 0.05]
 matrix_sigma_h = numpy.array([[0.05, 0.05, 0.05, 0.05], [0.05, 0.05, 0.05, 0.05], [0.05, 0.05, 0.05, 0.05], [0.05, 0.05, 0.05, 0.05]])
 
 def LDS_forward(f, F, v_array):
+    global A
+    global B
+    
+    global v_bias
+    global h_bias
+    
+    global matrix_sigma_v
+    global matrix_sigma_h
+    
+    A_matrix = numpy.array(A)
+    B_matrix = numpy.array(B)
     
     f_matrix = numpy.array(f)
     F_matrix = numpy.array(F)
@@ -121,6 +132,18 @@ def LDS_forward(f, F, v_array):
     return f_new, F_new, likelihood
 
 def LDS_backward(g, G, f, F):
+    global A
+    global B
+    
+    global v_bias
+    global h_bias
+    
+    global matrix_sigma_v
+    global matrix_sigma_h
+    
+    A_matrix = numpy.array(A)
+    B_matrix = numpy.array(B)
+    
     v_bias_matrix = numpy.array(v_bias)
     h_bias_matrix = numpy.array(h_bias)
     
@@ -154,10 +177,6 @@ A_MAX = []
 B_MAX = []
 
 while i < n:
-    A = [[0, 0, 0, 0], [0.1, 0, 0, 0], [0, 0.1, 0, 0], [0, 0, 0.1, 0]]
-
-    B = [[0.2, 0, 0, 0], [0, 0.2, 0, 0], [0, 0, 0.2, 0], [0, 0, 0, 0.2]]
-
     A_matrix = numpy.array(A)
     B_matrix = numpy.array(B)
 
